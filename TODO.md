@@ -1,6 +1,6 @@
 # TODO – needforheat-living-room-module-firmware
 
-Open work for this repository, distilled from the old NeedForHeat Trello board (paraphrased and regrouped) and from the 2026 maintenance review.
+Open work for this repository, distilled from the old NeedForHeat Trello board, including the discussions on the cards (paraphrased and regrouped) and from the 2026 maintenance review.
 
 Items that touch several repositories are written out in full in one *lead* repository; the others list them with a link (→). Keep the details up to date in the lead repository only.
 
@@ -11,8 +11,8 @@ Items that touch several repositories are written out in full in one *lead* repo
 
 ## Soon: robustness and correctness
 
-- [ ] <a id="rhswap"></a>**Check humidity and temperature property mapping.** Values of `relativeHumidity` and `roomTempCO2` looked swapped in earlier data. Check the mapping in the firmware and fix it if needed. *(Trello #283)*
-- [ ] <a id="lrmgaps"></a>**Investigate data gaps of the living room module.** Some modules had gaps or a clock that did not sync with NTP. Re-check with v3.3.0 (no reboot on outage, plausible timestamps). Also affects: needforheat-generic-firmware. *(Trello #1024)*
+- [ ] <a id="rhswap"></a>**Check humidity and temperature property mapping.** Values of `relativeHumidity` and `roomTempCO2` looked swapped in earlier data. Check the mapping in the firmware and fix it if needed. If old data is affected, correct it during preprocessing rather than in the stored data. *(Trello #283)*
+- [ ] <a id="lrmgaps"></a>**Investigate data gaps of the living room module.** Some modules had gaps or a clock that did not sync with NTP. Re-check with v3.3.0 (no reboot on outage, plausible timestamps). Known causes: 1970 timestamps when NTP fails, 2036 when the RTC lost all power. Also affects: needforheat-generic-firmware. *(Trello #1024)*
 - [ ] → Make OTA updates trustworthy and staged — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#ota) *(Trello #347, #770)*
 - [ ] → Upgrade to ESP-IDF 5.5 (WPA3, Wi-Fi 6) — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#idf) *(Trello #806)*
 - [ ] → Let generic and device-specific code share buttons — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#buttons) *(Trello #833)*

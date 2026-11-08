@@ -74,4 +74,4 @@ Gebruik het zwarte wieltje met de knop aan de zijkant (dit brengt je naar het 'S
 De broncode van dit meetapparaatje is openbaar beschikbaar via GitHub via  [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energietransitie/twomes-co2-occupancy-scd41-m5coreink-firmware).
 
 ## Wat als ik andere vragen of opmerkingen heb?
-Stuur dan een e-mail naar de helpdesk van het NeedForHeat-onderzoek via [needforheatonderzoek@windesheim.nl](needforheatonderzoek@windesheim.nl).
+Neem dan contact op met de helpdesk van de organisatie die uw meetcampagne uitvoert; de contactgegevens staan op het informatiescherm van de NeedForHeat-app.

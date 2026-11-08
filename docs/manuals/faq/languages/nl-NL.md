@@ -63,7 +63,7 @@ Ja. Verder hoef je niets te doen; detectie en meetellen van aanwezigheid gaat ge
 
 ## 7. Welke techniek gebruikt dit apparaatje om aanwezigheid te detecteren?
 
-Dit apparaatje gebruikt [Bluetooth name requests om aanwezigheid van smartphones te detecteren](https://github.com/energietransitie/twomes-generic-esp-firmware/blob/main/src/presence_detection/README.md#general-info).
+Dit apparaatje gebruikt [Bluetooth name requests om aanwezigheid van smartphones te detecteren](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info).
 
 ## 8. Wat moet ik doen als het e-ink-scherm heldere of donkere vlekken heeft??
 
@@ -71,7 +71,7 @@ Gebruik het zwarte wieltje met de knop aan de zijkant (dit brengt je naar het 'S
 
 ## 9. Waar kan ik meer technisch info vinden over dit apparaatje?
 
-De broncode van dit meetapparaatje is openbaar beschikbaar via GitHub via  [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energietransitie/twomes-co2-occupancy-scd41-m5coreink-firmware).
+De broncode van dit meetapparaatje is openbaar beschikbaar via GitHub via  [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
 
 ## Wat als ik andere vragen of opmerkingen heb?
 Neem dan contact op met de helpdesk van de organisatie die uw meetcampagne uitvoert; de contactgegevens staan op het informatiescherm van de NeedForHeat-app.

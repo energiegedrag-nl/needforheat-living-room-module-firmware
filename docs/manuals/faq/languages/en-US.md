@@ -63,7 +63,7 @@ Yes. You don't need to do anything else; detection and counting of presence are 
 
 ## 7. What technology does this device use to detect presence?
 
-This device uses [Bluetooth name requests to detect the presence of smartphones](https://github.com/energietransitie/twomes-generic-esp-firmware/blob/main/src/presence_detection/README.md#general-info).
+This device uses [Bluetooth name requests to detect the presence of smartphones](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info).
 
 ## 8. What should I do if the e-ink screen has bright or dark spots??
 
@@ -71,7 +71,7 @@ Use the black wheel with the button on the side (this will take you to the 'SMAR
 
 ## 9. Where can I find more technical information about this device?
 
-The source code of this measurement device is publicly available on GitHub under [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energietransitie/twomes-co2-occupancy-scd41-m5coreink-firmware).
+The source code of this measurement device is publicly available on GitHub under [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
 
 ## What if I have other quesions or remarks?
 Please contact the helpdesk of the organisation that runs your measurement campaign; you find its contact details on the information screen of the NeedForHeat app.

@@ -74,5 +74,5 @@ Use the black wheel with the button on the side (this will take you to the 'SMAR
 The source code of this measurement device is publicly available on GitHub under [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energietransitie/twomes-co2-occupancy-scd41-m5coreink-firmware).
 
 ## What if I have other quesions or remarks?
-Please send an email to the NeedForHeat research helpdesk via [needforheatonderzoek@windesheim.nl](needforheatonderzoek@windesheim.nl).
+Please contact the helpdesk of the organisation that runs your measurement campaign; you find its contact details on the information screen of the NeedForHeat app.
 

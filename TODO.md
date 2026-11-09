@@ -6,6 +6,7 @@ Items that touch several repositories are written out in full in one *lead* repo
 
 ## Now: needed to run at home this winter
 
+- [ ] <a id="hwtest"></a>**Hardware test of v3.4.0 on the living room module.** Erase and flash over USB (new partition table), install the new APK, scan the `NFH:` QR code, choose test or production server, and check: provisioning steps on screen, activation, uploads, the overview screen after the first measurement, the presence menu (no ghosting when scrolling), a readable screen after power-off, and the buffer (unplug network for hours). Then mark generic #16 ready, tag v3.4.0 and point living room #8 to that tag. Also affects: needforheat-generic-firmware, needforheat-gearup-app.
 - [ ] → Release workflow without the Windesheim signing key — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#unsigned) *(Trello #480)*
 - [ ] → Recover cleanly when activation fails — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#actfail) *(Trello #837)*
 
@@ -19,6 +20,7 @@ Items that touch several repositories are written out in full in one *lead* repo
 - [ ] → Provisioning after a Wi-Fi reset fails if a measurement interrupts it — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#provint) *(Trello #891)*
 - [ ] → Show device status on the e-ink screen — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#einkstatus) *(Trello #303, #867, #1218, #499)*
 - [ ] → Stable Bluetooth presence detection — see [needforheat-presence-detector-firmware](https://github.com/energiegedrag-nl/needforheat-presence-detector-firmware/blob/main/TODO.md#btstab) *(Trello #222, #769)*
+- [ ] → Use the ESP-IDF certificate bundle — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#crtbundle)
 
 ## Later: features and ideas
 
@@ -28,3 +30,7 @@ Items that touch several repositories are written out in full in one *lead* repo
 - [ ] → CONTRIBUTING.md with the branching workflow — see [needforheat-generic-firmware](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/TODO.md#contrib) *(Trello #394, #1032)*
 - [ ] → Register phones for presence detection — see [needforheat-server-api](https://github.com/energiegedrag-nl/needforheat-server-api/blob/main/TODO.md#bt) *(Trello #104, #117, #863, #576)*
 - [ ] → Fix links and errors in device manuals — see [needforheat-manuals](https://github.com/energiegedrag-nl/needforheat-manuals/blob/prd/TODO.md#manlinks) *(Trello #718, #995, #719)*
+
+## Recently done
+
+- [x] Persistent buffer partition and server choice, built against generic v3.4.0-rc (#7)

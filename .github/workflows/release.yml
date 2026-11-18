@@ -9,6 +9,10 @@ env:
   # Name of the archive .zip and .tar.gz archives without extension. Tag will be appended to this.
   ARCHIVE_PREFIX: ${{ github.event.repository.name }}
 
+# The GITHUB_TOKEN of this organisation is read-only by default; creating a release needs write access.
+permissions:
+  contents: write
+
 jobs:
   build-and-draft-release:
     runs-on: ubuntu-latest

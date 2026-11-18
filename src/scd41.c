@@ -11,6 +11,8 @@
 #define SCD41_CMD_LOWPOWER_PERIODIC 0x21, 0xac	 // 0x21b1
 #define SCD41_SELFTEST 0x36, 0x39				 // 0x3639
 #define SCD41_CMD_FORCE_RECALIBRATION 0x36, 0x2f // 0x362f
+#define SCD41_CMD_START_PERIODIC 0x21, 0xb1		 // 0x21b1
+#define SCD41_CMD_STOP_PERIODIC 0x3f, 0x86		 // 0x3f86
 
 #define SCD41_CMD_GET_TEMP_OFF 0x23, 0x18 // 0x2318
 
@@ -18,14 +20,6 @@
 #define CRC8_POLYNOMIAL 0x31
 #define CRC8_INIT 0xFF
 
-/**
- * recalibrate to 415 ppm = 0x019F; 
- * sources:
- * recent data on https://scrippsco2.ucsd.edu/
- * recent data via https://atmosphere.copernicus.eu/charts/cams/carbon-dioxide-forecasts
- * viz. https://atmosphere.copernicus.eu/charts/cams/carbon-dioxide-forecasts?facets=undefined&time=2022092600,60,2022092812&projection=classical_central_europe&layer_name=composition_co2_totalcolumn
- */
-#define SCD41_CO2_RECALIBRATION_VAL 0x01, 0x9F
 
 void co2_init(uint8_t address)
 {
@@ -127,61 +121,6 @@ uint8_t co2_disable_asc(uint8_t address)
 	return response_buffer[1];
 }
 
-/**
- * @brief Recalibrate the CO2 sensor.
- * Device performs a read immeadiately after to check for recalibration success
- * @param address i2c address of the device
- *
- * @return
- * 	ESP_OK: success
- * 	ESP_ERR_INVALID_RESPONSE: failed
- */
-esp_err_t co2_force_recalibration(uint8_t address, int16_t* offset)
-{
-	// First gather measurements for more than 3 minutes. This is needed before calibration.
-	// 3 minutes is 3 * 60 = 180 seconds.
-	// Every co2_read takes 5 seconds, so we need to do 180 / 5 = 36 co2_reads.
-	for (int i = 0; i < 36; i++)
-	{
-		uint16_t values[3];
-		esp_err_t err = co2_read(address, values);
-		if (err != ESP_OK)
-		{
-			ESP_LOGW("CO2", "CRC was incorrect or no sensor wat attached.");
-			return ESP_ERR_INVALID_RESPONSE;
-		}
-	}
-
-	// Generate command buffer:
-	uint8_t x[2] = {SCD41_CO2_RECALIBRATION_VAL};
-	uint8_t force_recalibrate_cmd[5] = {SCD41_CMD_FORCE_RECALIBRATION,
-										SCD41_CO2_RECALIBRATION_VAL,
-										scd41_crc8(x, 2)}; // Command buffer with generated CRC, write 0x019F to FORCE_RECALIBRATION address.
-	// Write to I2C:
-	twomes_i2c_write_port_1(address, force_recalibrate_cmd, sizeof force_recalibrate_cmd, I2C_SEND_STOP);
-
-	vTaskDelay(500 / portTICK_PERIOD_MS); // Give SCD41 time for processing. 400ms according to the datasheet, + margin.
-	// Read the result:
-	uint8_t response_buffer[3];
-	twomes_i2c_read_port_1(address, response_buffer, sizeof response_buffer);
-
-	uint8_t crc = scd41_crc8(response_buffer, 2);
-	if (crc != response_buffer[2])
-		return ESP_ERR_INVALID_CRC;
-
-	// Debug print:
-	ESP_LOGD("Force recalibrate SCD41", "Received Response: %2X, %2X", response_buffer[0], response_buffer[1]);
-
-	uint16_t response = ((int16_t)response_buffer[0] << 8) | response_buffer[1];
-	if (response == 0xffff)
-		return ESP_ERR_INVALID_RESPONSE;
-
-	response -= 0x8000; // We need to substract 0x8000 according to the datasheet.
-
-	*offset = (int16_t)(response);
-	return ESP_OK;
-}
-
 esp_err_t co2_read(uint8_t address, uint16_t *buffer)
 {
 	// Send singleshot command:
@@ -192,6 +131,11 @@ esp_err_t co2_read(uint8_t address, uint16_t *buffer)
 	ESP_LOGD("CO2", "wait %d ms", SCD41_SINGLE_SHOT_DELAY_MS);
 	vTaskDelay(pdMS_TO_TICKS(SCD41_SINGLE_SHOT_DELAY_MS));
 
+	return co2_read_measurement(address, buffer);
+}
+
+esp_err_t co2_read_measurement(uint8_t address, uint16_t *buffer)
+{
 	// Read the measurement:
 	uint8_t read_measurement_cmd[2] = {SCD41_CMD_READMEASURE};
 	twomes_i2c_write_port_1(address, read_measurement_cmd, sizeof read_measurement_cmd, I2C_SEND_NO_STOP);
@@ -229,6 +173,43 @@ esp_err_t co2_read(uint8_t address, uint16_t *buffer)
 
 	ESP_LOGD("CO2", "Measurement complete: CO2: 0x%02X%02X with CRC 0x%02X, T: 0x%02X%02X with CRC 0x%02X, RH 0x%02X%02X with CRC 0x%2X", read_buffer[0], read_buffer[1], read_buffer[2], read_buffer[3], read_buffer[4], read_buffer[5], read_buffer[6], read_buffer[7], read_buffer[8]);
 	ESP_LOGD("CRC", "Calculated CRC1: 0x%02X, CRC2: 0x%02X, CRC3: 0x%02X", crc1, crc2, crc3);
+	return ESP_OK;
+}
+
+esp_err_t co2_start_periodic(uint8_t address)
+{
+	uint8_t cmd[2] = {SCD41_CMD_START_PERIODIC};
+	twomes_i2c_write_port_1(address, cmd, sizeof cmd, I2C_SEND_STOP);
+	vTaskDelay(SCD41_WAIT_MS / portTICK_PERIOD_MS);
+	return ESP_OK;
+}
+
+esp_err_t co2_stop_periodic(uint8_t address)
+{
+	uint8_t cmd[2] = {SCD41_CMD_STOP_PERIODIC};
+	twomes_i2c_write_port_1(address, cmd, sizeof cmd, I2C_SEND_STOP);
+	vTaskDelay(pdMS_TO_TICKS(500)); // the sensor needs 500 ms before the next command
+	return ESP_OK;
+}
+
+esp_err_t co2_force_recalibration_to(uint8_t address, uint16_t target_ppm, int16_t *correction)
+{
+	// Datasheet: operate the sensor in periodic mode for at least 3 minutes at the target concentration, stop it,
+	// wait 500 ms (co2_stop_periodic), then send this command. The caller does that.
+	uint8_t value[2] = {(uint8_t)(target_ppm >> 8), (uint8_t)(target_ppm & 0xff)};
+	uint8_t cmd[5] = {SCD41_CMD_FORCE_RECALIBRATION, value[0], value[1], scd41_crc8(value, 2)};
+	twomes_i2c_write_port_1(address, cmd, sizeof cmd, I2C_SEND_STOP);
+	vTaskDelay(pdMS_TO_TICKS(500)); // 400 ms according to the datasheet, plus margin
+
+	uint8_t response[3];
+	twomes_i2c_read_port_1(address, response, sizeof response);
+	if (scd41_crc8(response, 2) != response[2])
+		return ESP_ERR_INVALID_CRC;
+	uint16_t raw = ((uint16_t)response[0] << 8) | response[1];
+	if (raw == 0xffff)
+		return ESP_ERR_INVALID_RESPONSE; // calibration failed (e.g. sensor not in periodic mode before)
+	*correction = (int16_t)(raw - 0x8000);
+	ESP_LOGI("CO2", "Forced recalibration to %u ppm, correction %d ppm", target_ppm, *correction);
 	return ESP_OK;
 }
 

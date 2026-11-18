@@ -25,13 +25,17 @@ namespace
 		return s;
 	}
 
-	/** Overview on the e-ink screen: CO2 large, temperature and humidity below it. */
+	/** Overview on the e-ink screen: CO2 large, temperature and humidity below it.
+	 *  Same design as the host renderer of the generic firmware (07-status-living-room): the unit after the main value,
+	 *  subscript digits in labels, the unit as tile label. Clock, server badge and footer are filled in by DisplayStatus. */
 	void ShowOnScreen(uint16_t co2, float temperature, float humidityFraction)
 	{
 		Screen::Status status;
-		status.bigLabel = "CO2 (ppm)";
+		status.device = "WK";
+		status.bigLabel = "CO₂";
 		status.bigValue = std::to_string(co2);
-		status.tiles = {{"temp. (C)", Decimal(temperature, 1)}, {"vocht (%)", Decimal(humidityFraction * 100.0f, 0)}};
+		status.bigUnit = "ppm";
+		status.tiles = {{"°C", Decimal(temperature, 1)}, {"RV %", Decimal(humidityFraction * 100.0f, 0)}};
 		GenericESP32Firmware::DisplayStatus(status);
 	}
 } // namespace

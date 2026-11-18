@@ -98,4 +98,4 @@ jobs:
           draft: true
           files: |
             ${{ env.BUILD_DIR }}/${{ env.ARCHIVE_NAME }}.zip
-            ${{ env.BUILD_DIR }}/firmware-signed_${{ matrix.platformio_env }}_${{ matrix.twomes_server_env }}.bin
+            ${{ env.BUILD_DIR }}/firmware-signed_${{ matrix.platformio_env }}.bin

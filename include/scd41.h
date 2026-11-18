@@ -27,6 +27,12 @@ extern "C"
 
 void co2_init(uint8_t address);
 
+/** Temperature offset for single shots every 10 minutes (factory 4 °C; measured 2.5 °C too low on 18-11-2026). */
+#define SCD41_TEMPERATURE_OFFSET_C 1.5f
+
+/** Set the temperature offset (°C) the sensor subtracts; also corrects the relative humidity it computes. */
+void co2_set_temperature_offset(uint8_t address, float celsius);
+
 /**
  * CRC8 code taken from Sensirion SCD41 Datasheet: https://nl.mouser.com/datasheet/2/682/Sensirion_CO2_Sensors_SCD4x_Datasheet-2321195.pdf
  * @brief calculate the CRC for an SCD41 I2C message
@@ -57,15 +63,19 @@ uint64_t co2_get_serial(uint8_t address);
 uint8_t co2_disable_asc(uint8_t address);
 
 /**
- * @brief Recalibrate the CO2 sensor.
- * Device performs a read immeadiately after to check for recalibration success
- * @param address i2c address of the device
- *
- * @return
- *  ESP_OK: success
- *  ESP_ERR_INVALID_RESPONSE: failed
+ * @brief Forced recalibration (FRC) to target_ppm. Before: periodic mode for at least 3 minutes at that concentration,
+ * then co2_stop_periodic. correction is the change the sensor applied, in ppm.
  */
-esp_err_t co2_force_recalibration(uint8_t address, int16_t* offset);
+esp_err_t co2_force_recalibration_to(uint8_t address, uint16_t target_ppm, int16_t *correction);
+
+/** Start periodic measurement (a new value every 5 s). */
+esp_err_t co2_start_periodic(uint8_t address);
+
+/** Stop periodic measurement; waits the 500 ms the sensor needs. */
+esp_err_t co2_stop_periodic(uint8_t address);
+
+/** Read the latest measurement (CO2, T, RH raw) without starting one (periodic mode). */
+esp_err_t co2_read_measurement(uint8_t address, uint16_t *buffer);
 
 /**
  * send singleshot command, sleep for the conversion time and read the output \n

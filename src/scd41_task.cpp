@@ -6,9 +6,12 @@
 #include <measurements.hpp>
 #include <util/error.hpp>
 
+#include <cstdlib>
+#include <string>
+#include <util/nvs.hpp>
+
 #ifdef M5STACK_COREINK
 #include <cstdio>
-#include <string>
 #include <generic_esp_32.hpp>
 
 namespace
@@ -64,6 +67,16 @@ void SCD41Task(void *taskInfo)
 			ESP_LOGW(taskName, "CRC was incorrect or no sensor wat attached.");
 			return;
 		}
+	}
+
+	// Once after a calibration before provisioning: its correction, so it can be traced per device.
+	std::string correction, uploaded;
+	if (NVS::Get("lrm", "co2cal", correction) == ESP_OK && NVS::Get("lrm", "co2cal_up", uploaded) != ESP_OK)
+	{
+		Measurements::Measurement::AddFormatter("co2_cal_correction__ppm", "%d");
+		Measurements::Measurement calibration("co2_cal_correction__ppm", std::atoi(correction.c_str()));
+		secureUploadQueue.AddMeasurement(calibration);
+		NVS::Set("lrm", "co2cal_up", std::string("1"));
 	}
 
 	Measurements::Measurement co2Concentration("co2__ppm", scd41Data[0]);

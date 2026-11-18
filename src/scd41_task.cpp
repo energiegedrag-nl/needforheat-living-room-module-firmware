@@ -31,7 +31,6 @@ namespace
 	void ShowOnScreen(uint16_t co2, float temperature, float humidityFraction)
 	{
 		Screen::Status status;
-		status.device = "WK";
 		status.bigLabel = "CO₂";
 		status.bigValue = std::to_string(co2);
 		status.bigUnit = "ppm";

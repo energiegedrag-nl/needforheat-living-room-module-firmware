@@ -23,10 +23,9 @@ jobs:
           # - ESP32DEV
           - M5STACK_COREINK
 
-        # Twomes server environments to build for.
-        twomes_server_env:
-          - TEST_SERVER
-          - PRODUCTION_SERVER
+        # One build for test and production: the app tells the device its server while provisioning (endpoint
+        # nfh-config, generic firmware v3.4); the built-in default is production, test is the only alternative
+        # (CONFIG_TWOMES_ALT_SERVER_HOSTNAMES in platformio.ini).
 
     env:
       # Directory where the to-be-archived files are.
@@ -63,7 +62,7 @@ jobs:
       - name: Build PlatformIO project
         env:
           PLATFORMIO_ENV: ${{ matrix.platformio_env }}
-          PLATFORMIO_BUILD_FLAGS: -DCONFIG_TWOMES_${{ matrix.twomes_server_env }}
+          PLATFORMIO_BUILD_FLAGS: -DCONFIG_TWOMES_PRODUCTION_SERVER
         run: pio run -e $PLATFORMIO_ENV
 
       # Create secure_boot_signing_key.pem from GH secret SECURE_BOOTLOADER_SIGNING_KEY.
@@ -80,11 +79,11 @@ jobs:
           SECURE_BOOTLOADER_SIGNING_KEY: ${{ secrets.SECURE_BOOTLOADER_SIGNING_KEY }}
         if: ${{ env.SECURE_BOOTLOADER_SIGNING_KEY != '' }}
         with:
-          command: espsecure.py sign_data -v1 --keyfile secure_boot_signing_key.pem --output $BUILD_DIR/firmware-signed_${{ matrix.platformio_env }}_${{ matrix.twomes_server_env }}.bin $BUILD_DIR/firmware.bin
+          command: espsecure.py sign_data -v1 --keyfile secure_boot_signing_key.pem --output $BUILD_DIR/firmware-signed_${{ matrix.platformio_env }}.bin $BUILD_DIR/firmware.bin
       
       # Set ARCHIVE_NAME variable from ARCHIVE_PREFIX and tag name.
       - name: Set ARCHIVE_NAME
-        run: echo "ARCHIVE_NAME=${ARCHIVE_PREFIX}_${{ matrix.platformio_env }}_${{ matrix.twomes_server_env }}_${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+        run: echo "ARCHIVE_NAME=${ARCHIVE_PREFIX}_${{ matrix.platformio_env }}_${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       
       # Archive binary files.
       - name: Archive binary files

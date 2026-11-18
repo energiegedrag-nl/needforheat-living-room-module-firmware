@@ -23,7 +23,7 @@ namespace
 {
 	constexpr const char *CAL_NVS = "lrm";
 	constexpr const char *CAL_KEY = "co2cal"; // correction in ppm of the last calibration; present: done
-	constexpr uint16_t OUTDOOR_PPM = 420;	  // outdoor air in 2026 (global mean ~425, background stations ~420)
+	constexpr uint16_t OUTDOOR_PPM = 425;	  // outdoor air in 2026 (global mean about 425 ppm)
 	constexpr int READ_S = 5;				  // the sensor gives a new value every 5 s in periodic mode
 	constexpr int WARMUP_S = 5 * 60;		  // settle (sensor and box) before judging
 	constexpr int WINDOW_S = 3 * 60;		  // stable for 3 minutes, as the datasheet asks before a forced recalibration

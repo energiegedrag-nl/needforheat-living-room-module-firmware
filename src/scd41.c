@@ -15,6 +15,7 @@
 #define SCD41_CMD_STOP_PERIODIC 0x3f, 0x86		 // 0x3f86
 
 #define SCD41_CMD_GET_TEMP_OFF 0x23, 0x18 // 0x2318
+#define SCD41_CMD_SET_TEMP_OFF 0x24, 0x1d // 0x241d
 
 // CRC defines
 #define CRC8_POLYNOMIAL 0x31
@@ -29,6 +30,20 @@ void co2_init(uint8_t address)
 		ESP_LOGD("CO2_INIT", "ASC enabled");
 	else
 		ESP_LOGD("CO2_INIT", "ASC disabled");
+
+	// The factory offset of 4 °C compensates the self-heating in continuous measurement. With a few single shots every
+	// 10 minutes the sensor hardly heats up: temperatures were about 2.5 °C too low (and relative humidity, which the
+	// sensor computes with that temperature, too high). Like ASC, set every round (volatile; no EEPROM wear).
+	co2_set_temperature_offset(address, SCD41_TEMPERATURE_OFFSET_C);
+}
+
+void co2_set_temperature_offset(uint8_t address, float celsius)
+{
+	uint16_t word = (uint16_t)(celsius * 65536.0f / 175.0f + 0.5f);
+	uint8_t value[2] = {(uint8_t)(word >> 8), (uint8_t)(word & 0xff)};
+	uint8_t cmd[5] = {SCD41_CMD_SET_TEMP_OFF, value[0], value[1], scd41_crc8(value, 2)};
+	twomes_i2c_write_port_1(address, cmd, sizeof cmd, I2C_SEND_STOP);
+	vTaskDelay(SCD41_WAIT_MS / portTICK_PERIOD_MS);
 }
 
 /**

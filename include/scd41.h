@@ -27,6 +27,12 @@ extern "C"
 
 void co2_init(uint8_t address);
 
+/** Temperature offset for single shots every 10 minutes (factory 4 °C; measured 2.5 °C too low on 18-11-2026). */
+#define SCD41_TEMPERATURE_OFFSET_C 1.5f
+
+/** Set the temperature offset (°C) the sensor subtracts; also corrects the relative humidity it computes. */
+void co2_set_temperature_offset(uint8_t address, float celsius);
+
 /**
  * CRC8 code taken from Sensirion SCD41 Datasheet: https://nl.mouser.com/datasheet/2/682/Sensirion_CO2_Sensors_SCD4x_Datasheet-2321195.pdf
  * @brief calculate the CRC for an SCD41 I2C message

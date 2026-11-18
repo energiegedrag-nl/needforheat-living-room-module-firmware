@@ -61,8 +61,8 @@ extern "C" void app_main(void)
 	GenericTasks::AddTasksToScheduler();
 
 	// Initialize generic firmware.
-	// Name for people on the provisioning screen (a box can hold several CoreInks); Dutch, like display_names.json.
-	GenericESP32Firmware::SetDisplayName("Woonkamermodule");
+	// Short name for people on the provisioning screen (a box can hold several CoreInks).
+	GenericESP32Firmware::SetShortName("Woonkamer"); // as in needforheat-manuals short_names.json
 	GenericESP32Firmware::Initialize(DEVICE_TYPE_NAME);
 
 	// Start the scheduler.

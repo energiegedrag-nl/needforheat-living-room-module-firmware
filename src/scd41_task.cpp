@@ -6,12 +6,13 @@
 #include <measurements.hpp>
 #include <util/error.hpp>
 
-#ifdef M5STACK_COREINK
-#include <cstdio>
 #include <cstdlib>
 #include <string>
-#include <generic_esp_32.hpp>
 #include <util/nvs.hpp>
+
+#ifdef M5STACK_COREINK
+#include <cstdio>
+#include <generic_esp_32.hpp>
 
 namespace
 {

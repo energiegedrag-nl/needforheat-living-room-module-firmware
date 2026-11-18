@@ -18,6 +18,7 @@ constexpr const char *DEVICE_TYPE_NAME = "twomes-co2-occupancy-scd41-m5coreink-f
 // CO2 calibration: a deliberate action before provisioning (GenericESP32Firmware::SetPreProvisioningAction), once per
 // flash, on battery, outdoors. Not on a button any more: a long press "up" (GPIO 37) clashed with the presence menu,
 // and a forced recalibration indoors by accident shifts the sensor by hundreds of ppm for good.
+#ifdef M5STACK_COREINK // the calibration uses the screen and the battery monitor of the CoreInk
 namespace
 {
 	constexpr const char *CAL_NVS = "lrm";
@@ -110,6 +111,7 @@ namespace
 		Show(title, {"Gekalibreerd op " + std::to_string(OUTDOOR_PPM) + " ppm.", "Correctie " + Signed(correction) + " ppm."}, Clock(seconds), 60);
 	}
 } // namespace
+#endif // M5STACK_COREINK
 
 extern "C" void app_main(void)
 {
@@ -126,7 +128,9 @@ extern "C" void app_main(void)
 	// Initialize generic firmware.
 	// Short name for people on the provisioning screen (a box can hold several CoreInks).
 	GenericESP32Firmware::SetShortName("Woonkamer"); // as in needforheat-manuals short_names.json
+#ifdef M5STACK_COREINK
 	GenericESP32Firmware::SetPreProvisioningAction("CO₂ kalibreren", "Ligt de module buiten, in de open lucht?", CalibrateOutdoors);
+#endif
 	GenericESP32Firmware::Initialize(DEVICE_TYPE_NAME);
 
 	// Start the scheduler.

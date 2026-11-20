@@ -2,40 +2,36 @@
 
 ![apparaat](../assets/device.jpg)
 
-# Over het apparaat
+De woonkamermodule meet elke 10 minuten de CO₂-concentratie, de temperatuur en de luchtvochtigheid in uw woonkamer, en hoeveel aangemelde smartphones thuis zijn. Het scherm toont steeds de laatste meting.
 
-Elke 10 minuten meet de woonkamermodule de binnentemperatuur, de CO₂-concentratie, de luchtvochtigheid en het aantal bewoners dat thuis aanwezig is.
-        
 # Installatie
 
-Voer alle stappen hieronder uit voordat u in de NeedForHeat app verder gaat.
+## 1. Kies een plek
 
-## 1. Klik de sensor vast op de hoofdmodule.
+Zet de module in de woonkamer, het liefst in de buurt van de thermostaat:
 
-In de doos die u heeft ontvangen zit de sensor nog niet vastgeklikt op de hoofdmodule. Klik de sensor met de zwarte pennetjes vast op de het grijze balkje aan de achterkant van de hoofdmodule. Zorg dat de luchtgaatjes van sensor vrij zijn.
+- niet in de zon of in fel licht\*, niet in de tocht en niet boven of naast een radiator;
+- binnen bereik van uw wifi;
+- bij een stopcontact.
 
-## 2. Zoek een geschikte plek voor de woonkamermodule.
+Zit de sensor (het losse blokje) nog niet vast? Klik hem dan met de pennetjes op het grijze balkje aan de achterkant. Houd de luchtgaatjes vrij.
 
-Zoek een plek in de woonkamer:
+\* Fel licht kan vlekken op het scherm geven; zie de [veelgestelde vragen](../../../faq/).
 
-- uit de zon en fel verlichte omgevingen\*;
-- uit de tocht;
-- in de buurt van de thermostaat;
-- binnen bereik van uw wifinetwerk thuis;
-- binnen bereik van een vrij stopcontact.
+## 2. Sluit de voeding aan
 
-Plaats de woonkamermodule daar.
+Steek de USB-kabel in de module en de adapter in het stopcontact. Laat de voeding aangesloten: de ingebouwde batterij is alleen bedoeld voor korte tijd zonder stroom.
 
-\* Dit in verband met goede temperatuurmetingen, maar ook om vegen en strepen op het e-ink te voorkomen: het e-ink scherm van de woonkamermodule is gevoelig voor zonlicht en fel daglicht: dit kan lichte of donkere plekken veroorzaken. Mocht u toch last krijgen van deze vlekken op het scherm, kijk dan in de [FAQ](../../../faq/) hoe u deze kunt verhelpen.
-
-## 3. Steek de stekker in het stopcontact.
-
-Stop de stekker in het stopcontact.
-
-Hieronder volgt een voorbeeld van een aangesloten woonkamermodule:
+Het scherm toont **Woonkamer**, een QR-code en **Scan met app**.
 
 ![aangesloten woonkamermodule](../assets/device-installed.jpg)
 
-## 4. Verbind het apparaat met wifi.
+## 3. Koppel de module met de app
 
-Ga verder in de NeedForHeat-app om het apparaat met uw wifinetwerk thuis te verbinden.
+Scan in de NeedForHeat-app de QR-code op het scherm en volg de app.
+
+- Zodra de app verbonden is, hoort u een piep. Het scherm toont dan **Koppelen** met dezelfde stappen als de app: Bluetooth, Server, Wifi en Eerste meting.
+- Kies een wifinetwerk op **2,4 GHz**. De meeste routers bieden dat naast 5 GHz. Netwerken met alleen WPA3 werken niet; WPA2/WPA3 gemengd wel.
+- Houd de app open tot die meldt dat de eerste meting binnen is. Daarna toont het scherm de metingen.
+
+Lukt het niet? Zie de [veelgestelde vragen](../../../faq/).

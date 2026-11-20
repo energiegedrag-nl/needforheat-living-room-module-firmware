@@ -2,39 +2,36 @@
 
 ![device](../assets/device.jpg)
 
-# About the device
+Every 10 minutes the living room module measures the CO₂ concentration, temperature and humidity in your living room, and how many registered smartphones are at home. The screen always shows the latest measurement.
 
-Every 10 minutes, the living room module collects information about indoor temperature, CO₂-concentration, air humidity and the number of occupants present at home.
-        
 # Installation
 
-Follow all steps below before you continue in the NeedForHeat app.
-## 1. Attach the sensor to the main module
+## 1. Choose a place
 
-In the box you received, the sensor is not yet attached to the main module. Click the sensor with the black pins onto the gray bar at the back of the main module. Ensure that the air holes of the sensor are free.
+Put the module in the living room, preferably near the thermostat:
 
-## 2. Place at a suitable spot in the living room module
+- out of the sun and bright light\*, out of draughts and not above or next to a radiator;
+- within reach of your Wi-Fi;
+- near a power socket.
 
-Find a suitable spot in the living room:
+Is the sensor (the separate block) not attached yet? Click it with its pins onto the grey bar at the back. Keep the air holes free.
 
-- out of the sun and brightly lit environments\*;
-- away of draft;
-- near the thermostat;
-- in reach of your home Wi-Fi network;
-- within reach of a free electrical outlet.
+\* Bright light can leave marks on the screen; see the [frequently asked questions](../../../faq/).
 
-Place the living room module there.
+## 2. Connect the power
 
-\* This is related to accurate temperature measurements, but also to prevent smudges and streaks on the e-ink display. The e-ink screen of the living room module is sensitive to sunlight and bright daylight, which can cause light or dark spots. If you experience these spots on the screen, please refer to the [FAQ](../../../faq/) to learn how to resolve them.
+Plug the USB cable into the module and the adapter into the socket. Keep it connected: the built-in battery is only meant for a short time without power.
 
-## 3. Plug in the power cord.
+The screen shows **Woonkamer**, a QR code and **Scan met app**.
 
-Plug the power cord into the power outlet.
+![connected living room module](../assets/device-installed.jpg)
 
-This is what a connected living room module may look like:
+## 3. Pair the module with the app
 
-![living room module connected](../assets/device-installed.jpg)
+In the NeedForHeat app, scan the QR code on the screen and follow the app.
 
-## 4. Connect the device with your home Wi-Fi.
+- As soon as the app is connected, you hear a beep. The screen then shows **Koppelen** with the same steps as the app: Bluetooth, Server, Wi-Fi and First measurement.
+- Choose a **2.4 GHz** Wi-Fi network. Most routers offer it next to 5 GHz. WPA3-only networks do not work; mixed WPA2/WPA3 does.
+- Keep the app open until it reports that the first measurement has arrived. The screen then shows the measurements.
 
-Continue in the NeedForHeat app to connect the device to your home Wi-Fi network.
+Does it not work? See the [frequently asked questions](../../../faq/).

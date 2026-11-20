@@ -1,77 +1,77 @@
-# Woonkamermodule - FAQ
+# Woonkamermodule - veelgestelde vragen
 
-Veelgevraagde informatie over de woonkamermodule.
+## 1. Wat meet de woonkamermodule?
 
-# 1. Welke gegevens verzamelt dit apparaat?
+Elke 10 minuten:
 
-Elke 10 minuten meet de woonkamermodule:
-
-- de binnentemperatuur;
 - de CO₂-concentratie;
+- de temperatuur;
 - de luchtvochtigheid;
-- het aantal bewoners\* dat aanwezig is.
+- hoeveel aangemelde smartphones thuis zijn (zie vraag 4).
 
-\* Het apparaatje telt alleen smartphones mee als ze zijn aangemeld zijn op dit apparaat om meegeteld te worden door dit apparaat; zie ook vraag [4. Hoe kan ik smartphones laten meetellen?](#4-hoe-kan-ik-smartphones-laten-meetellen).
+Daarnaast de batterijspanning, om te zien of de voeding aangesloten is.
 
-## 2. Hoe kan ik het apparaatje installeren?
+## 2. Wat staat er op het scherm?
 
-Zie hiervoor de [installatiehandleiding](../../../installation/).
+- **Bovenaan**: wifi, de datum en de batterij (een bliksem: op de voeding).
+- **Midden**: de CO₂-concentratie in ppm; daaronder temperatuur, luchtvochtigheid en het aantal aanwezigen.
+- **Onderaan**: een wolkje met vinkje en de tijd waarop de laatste metingen zijn verstuurd. Een doorgestreept wolkje met *N metingen* betekent dat die metingen nog niet verstuurd zijn; de module bewaart ze en verstuurt ze later.
 
-## 3. Hoe kan ik het apparaatje opnieuw koppelen aan wifi?
+Het scherm ververst bij elke meting, dus de getallen zijn hooguit 10 minuten oud.
 
-Een wifi-reset van het apparaatje kan nodig zijn als je wifinetwerk thuis verandert, als je het apparaatje aan een ander wifinetwerk thuis wilt koppelen of om andere redenen.
+## 3. Hoe koppel ik de module opnieuw met wifi?
 
-De wifi-reset werkt als volgt:
+Bijvoorbeeld bij een nieuwe router of een nieuw wifiwachtwoord:
 
-1. Hou de knop bovenop de module ingedrukt (je voelt een duidelijke klik).
-2. Na 10 seconden gaat een groen lampje vlak bij het knopje 5 keer knipperen (als het te licht is zie je het wellicht niet).
-3. Laat de knop los.
-4. De 'Info? Scan!' QR-code wordt vervangen door een QR-code zonder onderschrift.
-5. Scan deze QR-code met de NeedForHeat app en volg de aanwijzingen.
+1. Houd de knop bovenop de module 10 seconden ingedrukt, tot het groene lampje 5 keer knippert.
+2. Laat los. De module start opnieuw en toont de QR-code met **Scan met app**.
+3. Scan die QR-code in de NeedForHeat-app en volg de app.
 
-## 4. Hoe kan ik smartphones laten meetellen?
+Uw eerdere metingen blijven bewaard.
 
-Voor het onderzoek is het nodig dat dit apparaatje de aanwezigheid van jou en je huisgenoten kan tellen. Dat doet dit apparaatje door af en toe het aantal aanwezige smartphones te tellen. Je moet hiervoor aan het begin van de meetperiode de smartphone van jezelf en die van elke huisgenoot éénmalig aanmelden op het apparaatje. Zo worden alleen huisgenoten meegeteld en de buren bijvoorbeeld niet. Om een smartphone aan te melden, ga je als volgt te werk:
+## 4. Hoe laat ik smartphones meetellen?
 
-1. Gebruik het zwarte wieltje met het knopje aan de zijkant (je komt dan in het 'SMARTPHONES:'-scherm)
-2. Zorg dat het menu item '+ toevoegen' gehighlight is en druk het wieltje kort in om het te selecteren.
-3. Je ziet nu het 'TOEVOEGEN?'-scherm met instructies wat je op de smartphone moet doen.
-4. Ga verder op de smartphone (op een iPhone of Android smartphone).
-    1. Zorg ervoor dat de smartphone is ingeschakeld en ontgrendeld.
-    2. Ga naar 'Instellingen' > 'Bluetooth'.
-    4. Zorg ervoor dat Bluetooth is ingeschakeld door de schakelaar aan te zetten.
-    5. Je smartphone zal nu automatisch zoeken naar beschikbare apparaten. Wacht tot 'NeedForHeat_OK' in de lijst verschijnt.
-    6. Tik op 'NeedForHeat_OK' om de koppeling te starten.
-    
-5. Een geslaagde koppeling bevestigt het meetapparaatje met een duidelijke piep; daarna wordt de naam van toegevoegde smartphone toegevoegd aan de lijst die op het schermpje van het meetapparaatje wordt getoond.
+De module telt aanwezigen door te kijken welke aangemelde smartphones in de buurt zijn. Meld daarom aan het begin uw eigen smartphone en die van elke huisgenoot één keer aan; de telefoons van de buren tellen zo niet mee.
 
-Als het de eerste keer niet lukt, probeer het dan a.u.b. nog een keer.
+1. Druk het zwarte wieltje aan de zijkant in. U ziet **SMARTPHONES:**.
+2. Kies **+ toevoegen** en druk het wieltje in.
+3. Ga op de smartphone naar **Instellingen > Bluetooth**, zet Bluetooth aan en tik op **NeedForHeat_OK** zodra die in de lijst staat.
+4. Een piep bevestigt de koppeling; de naam van de smartphone komt in de lijst op het scherm.
 
-Je kunt een menu op het scherm altijd verlaten door met het zwarte wieltje aan de zijkant te bladeren naar 'terug' en dat te selecteren door het zwarte wieltje in te drukken.
+Lukt het niet meteen, probeer het dan nog een keer.
 
-Als je een verkeerde smartphone hebt toegevoegd of als je wilt dat deze niet langer wordt meegeteld, kun je deze verwijderen door naar de naam van de smartphone te bladeren, deze te selecteren (zwarte wieltje indrukken) en het verwijderen te bevestigen.
+Een smartphone verwijderen: blader met het wieltje naar de naam, druk in en bevestig. Met **terug** verlaat u het menu; na 2 minuten zonder wieltje gaat de module vanzelf terug naar de metingen.
 
-Als je 2 minuten het zwarte wieltje aan de zijkant niet gebruikt hebt, zal het meetapparaatje vanzelf terugkeren in de normale stand met de QR-code met onderschrift 'Info? Scan!'
+## 5. Moet Bluetooth aan blijven?
 
-## 5. Blijft de smartphone verbonden met het apparaatje?
+Ja, op de aangemelde smartphones de hele meetperiode. Verder hoeft u niets te doen: de smartphone blijft niet verbonden, de module ziet hem ook zo. Bluetooth kost tegenwoordig nauwelijks batterij.
 
-Nee, nadat een smartphone één keer gekoppeld is aan 'NeedForHeat_OK' wordt de verbinding direct verbroken. Eenmaal gekoppelde apparaten worden automatisch meegeteld, zelfs zonder een actieve verbinding.
+Hoe dat werkt: de module stuurt af en toe een [Bluetooth-naamverzoek](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info) naar de aangemelde smartphones.
 
-## 6. Moet Bluetooth de hele meetperiode op de toegevoegde smartphones aan blijven staan?
+## 6. Het scherm heeft lichte of donkere vlekken
 
-Ja. Verder hoef je niets te doen; detectie en meetellen van aanwezigheid gaat geheel automatisch. Veel mensen laten Bluetooth tegenwoordig standaard aan staan; het heeft tegenwoordig nauwelijks nog invloed op de batterijduur van je smartphone.
+Dat komt door zonlicht of fel licht op het e-inkscherm. Druk het wieltje in en kies **terug**: het scherm wordt dan volledig opnieuw getekend.
 
-## 7. Welke techniek gebruikt dit apparaatje om aanwezigheid te detecteren?
+## 7. Het scherm zegt *Batterij bijna leeg* of *laad nu op*
 
-Dit apparaatje gebruikt [Bluetooth name requests om aanwezigheid van smartphones te detecteren](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info).
+De USB-voeding is los of de adapter zit niet in het stopcontact. Sluit hem weer aan; de module meet gewoon verder. Bij *Batterij leeg* stopt de module tot de voeding weer aangesloten is.
 
-## 8. Wat moet ik doen als het e-ink-scherm heldere of donkere vlekken heeft??
+## 8. Het scherm toont weer de QR-code met *Scan met app*
 
-Gebruik het zwarte wieltje met de knop aan de zijkant (dit brengt je naar het 'SMARTPHONES:' scherm) en verlaat vervolgens opnieuw dit menu. Hiermee wordt het scherm weer hersteld in zijn oorspronkelijke glorie.
+De module is zijn koppeling kwijt, bijvoorbeeld na een wifi-reset (vraag 3) of omdat de onderzoeker hem heeft vrijgegeven. Scan de QR-code opnieuw in de app, of neem contact op als u dat niet verwachtte.
 
-## 9. Waar kan ik meer technisch info vinden over dit apparaatje?
+## 9. Hoe kalibreer ik de CO₂-sensor?
 
-De broncode van dit meetapparaatje is openbaar beschikbaar via GitHub via  [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
+Alleen als de onderzoeker daarom vraagt, vóór het koppelen, en één keer:
 
-## Wat als ik andere vragen of opmerkingen heb?
-Neem dan contact op met de helpdesk van de organisatie die uw meetcampagne uitvoert; de contactgegevens staan op het informatiescherm van de NeedForHeat-app.
+1. Leg de module buiten in de open lucht, zonder USB-kabel, terwijl het scherm de QR-code toont.
+2. Houd het wieltje 5 seconden ingedrukt. Het scherm vraagt *Ligt de module buiten, in de open lucht?*
+3. Draai het wieltje binnen 30 seconden omlaag. Na een piep meet de module minstens 8 minuten (hooguit een half uur); laat hem liggen tot het scherm *Gekalibreerd* meldt.
+
+## 10. Waar vind ik technische informatie?
+
+De broncode staat op GitHub: [needforheat-living-room-module-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
+
+## Andere vragen?
+
+Neem contact op met de organisatie die uw meetcampagne uitvoert; de contactgegevens staan onder **Info** in de NeedForHeat-app.

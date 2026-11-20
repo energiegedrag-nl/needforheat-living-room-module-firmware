@@ -1,78 +1,77 @@
-# Living room module - FAQ
+# Living room module - frequently asked questions
 
-Frequently asked information about the living room module.
+## 1. What does the living room module measure?
 
-# 1. What data does this device collect?
+Every 10 minutes:
 
-Every 10 minutes, the living room module measures:
+- the CO₂ concentration;
+- the temperature;
+- the humidity;
+- how many registered smartphones are at home (see question 4).
 
-- indoor temperature;
-- CO₂ concentration;
-- humidity;
-- the number of occupants\* present.
+It also reports the battery voltage, to see whether the power supply is connected.
 
-\* The device only counts the number of smartphone housemates that were registered via this device to be counted by this device; see also question [4. How can I register smartphones for occupancy detection?](#4-how-can-i-register-smartphones-for-occupancy-detection)
+## 2. What is on the screen?
 
-## 2. How can I install the device?
+- **Top**: Wi-Fi, the date and the battery (a lightning bolt: on power).
+- **Middle**: the CO₂ concentration in ppm; below it temperature, humidity and the number of people present.
+- **Bottom**: a cloud with a tick and the time the latest measurements were sent. A crossed-out cloud with *N metingen* means those measurements have not been sent yet; the module keeps them and sends them later.
 
-For installation instructions, please refer to the [installation manual](../../../installation/).
+The screen refreshes with every measurement, so the numbers are at most 10 minutes old.
 
-## 3. How can I re-connect the device to Wi-Fi?
+## 3. How do I connect the module to Wi-Fi again?
 
-A Wi-Fi reset of the device may be necessary if you change your home Wi-Fi network, if you want to connect the device to a different home Wi-Fi network, or for other reasons.
+For example after a new router or a new Wi-Fi password:
 
-The Wi-Fi reset works as follows:
+1. Hold the button on top of the module for 10 seconds, until the green light blinks 5 times.
+2. Release it. The module restarts and shows the QR code with **Scan met app**.
+3. Scan that QR code in the NeedForHeat app and follow the app.
 
-1. Hold down the button on top of the module (you will feel a distinct click).
-2. After 10 seconds, you will see a green light near the button blink 5 times (in bright ambient light, you may not see it).
-3. Release the button.
-4. The 'Info? Scan!' QR code will be replaced by a QR code without a caption.
-5. Scan this QR code with the NeedForHeat app and follow the instructions.
+Earlier measurements are kept.
 
-## 4. How can I register smartphones for occupancy detection?
+## 4. How do I make smartphones count?
 
-For the research, the measurement device needs to be able to count the presence of occupants (i.e., you and your housemates). The device does this by occasionally counting the number of smartphones present that belong to occupants. To do this, you need to register the smartphone of each occupant on the device at the beginning of the measurement period. This way, only occupants are counted and not neighbors, for example. To register a smartphone for this purpose, follow these steps:
+The module counts people by checking which registered smartphones are nearby. At the start, register your own smartphone and that of each housemate once; the neighbours' phones then do not count.
 
-1. Use the black wheel with the button on the side (this will take you to the 'SMARTPHONES:' screen).
-2. Make sure that the menu item '+ toevoegen' is highlighed and press the black wheel briefly inward to select this menu item.
-3. You will now see the 'TOEVOEGEN?' screen with instructions on what to do on the smartphone.
-4. Proceed on the smartphone (either an iPhone or Android smartphone).
-    1. Ensure that the smartphone is turned on and unlocked.
-    2. Go to 'Settings' > 'Bluetooth'.
-    3. Ensure that Bluetooth is enabled by toggling the switch.
-    4. Your smartphone will now automatically search for available devices. Wait until 'NeedForHeat_OK' appears in the list.
-    5. Tap on 'NeedForHeat_OK' to initiate the pairing.
+1. Press the black dial on the side. You see **SMARTPHONES:**.
+2. Choose **+ toevoegen** and press the dial.
+3. On the smartphone, go to **Settings > Bluetooth**, switch Bluetooth on and tap **NeedForHeat_OK** as soon as it appears.
+4. A beep confirms the pairing; the smartphone's name appears in the list on the screen.
 
-5. A successful pairing will confirm the device with a clear beep, and the name of the added smartphone will be displayed on the screen of the measurement device.
+If it does not work at once, try again.
 
-If it doesn't work the first time, please try again.
+To remove a smartphone: scroll to its name with the dial, press and confirm. **terug** leaves the menu; after 2 minutes without using the dial the module returns to the measurements by itself.
 
-You can always exit a menu on the screen by scrolling to 'terug' using the black wheel on the side and selecting it by pressing the black wheel.
+## 5. Does Bluetooth have to stay on?
 
-If you have added the wrong smartphone or no longer want it to be counted, you can remove it by scrolling to the name of the smartphone, selecting it (pressing the black wheel), and confirming the removal.
+Yes, on the registered smartphones, for the whole measurement period. Nothing else is needed: the smartphone does not stay connected, the module sees it anyway. Bluetooth hardly uses any battery nowadays.
 
-If you have not used the black wheel on the side for 2 minutes, the measurement device will automatically return to the normal state with the QR code labeled 'Info? Scan!'
+How it works: now and then the module sends a [Bluetooth name request](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info) to the registered smartphones.
 
-## 5. Does the smartphone remain connected to the device?
+## 6. The screen has light or dark marks
 
-No, once a smartphone is paired with 'NeedForHeat_OK' for the first time, the connection is immediately terminated. Afterwards devices are automatically counted, even without an active connection.
+That is caused by sunlight or bright light on the e-ink screen. Press the dial and choose **terug**: the screen is then fully redrawn.
 
-## 6. Does Bluetooth need to remain on throughout the entire measurement period on the registered smartphones?
+## 7. The screen says *Batterij bijna leeg* or *laad nu op*
 
-Yes. You don't need to do anything else; detection and counting of presence are entirely automatic. Many people nowadays keep Bluetooth enabled by default; it has minimal impact on your smartphone's battery life.
+The USB power is disconnected or the adapter is not in the socket. Connect it again; the module keeps measuring. With *Batterij leeg* the module stops until power is connected again.
 
-## 7. What technology does this device use to detect presence?
+## 8. The screen shows the QR code with *Scan met app* again
 
-This device uses [Bluetooth name requests to detect the presence of smartphones](https://github.com/energiegedrag-nl/needforheat-generic-firmware/blob/main/src/presence_detection/README.md#general-info).
+The module has lost its pairing, for example after a Wi-Fi reset (question 3) or because the researcher released it. Scan the QR code again in the app, or contact us if you did not expect this.
 
-## 8. What should I do if the e-ink screen has bright or dark spots??
+## 9. How do I calibrate the CO₂ sensor?
 
-Use the black wheel with the button on the side (this will take you to the 'SMARTPHONES:' screen) and then exit this menu again. This will restore the screen to its original glory.
+Only when the researcher asks for it, before pairing, and once:
 
-## 9. Where can I find more technical information about this device?
+1. Put the module outside in the open air, without the USB cable, while the screen shows the QR code.
+2. Hold the dial pressed for 5 seconds. The screen asks *Ligt de module buiten, in de open lucht?*
+3. Turn the dial down within 30 seconds. After a beep the module measures for at least 8 minutes (at most half an hour); leave it until the screen reports *Gekalibreerd*.
 
-The source code of this measurement device is publicly available on GitHub under [twomes-co2-occupancy-scd41-m5coreink-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
+## 10. Where can I find technical information?
 
-## What if I have other quesions or remarks?
-Please contact the helpdesk of the organisation that runs your measurement campaign; you find its contact details on the information screen of the NeedForHeat app.
+The source code is on GitHub: [needforheat-living-room-module-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
 
+## Other questions?
+
+Contact the organisation that runs your measurement campaign; the contact details are under **Info** in the NeedForHeat app.

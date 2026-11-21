@@ -37,7 +37,7 @@ namespace
 		status.bigLabel = "CO₂";
 		status.bigValue = std::to_string(co2);
 		status.bigUnit = "ppm";
-		status.tiles = {{"icon:temperature", Decimal(temperature, 1) + "°"}, {"icon:humidity", Decimal(humidityFraction * 100.0f, 0) + "%"}};
+		status.tiles = {{"icon:temperature", Decimal(temperature, 1) + "°C"}, {"icon:humidity", Decimal(humidityFraction * 100.0f, 0) + "%"}};
 		GenericESP32Firmware::DisplayStatus(status);
 	}
 } // namespace

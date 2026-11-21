@@ -2,6 +2,7 @@
 #include <generic_tasks.hpp>
 #include <scheduler.hpp>
 #include <scd41_task.hpp>
+#include <device_menu.hpp>
 #include <presence_detection.hpp>
 #include <scd41.h>
 #include <util/buttons.hpp>
@@ -130,6 +131,13 @@ extern "C" void app_main(void)
 	GenericESP32Firmware::SetShortName("Woonkamer"); // as in needforheat-manuals short_names.json
 #ifdef M5STACK_COREINK
 	GenericESP32Firmware::SetPreProvisioningAction("CO₂ kalibreren", "Ligt de module buiten, in de open lucht?", CalibrateOutdoors);
+	// Status page of the dial menu: the correction of the CO2 calibration (or that it was not done).
+	DeviceMenu::AddStatusLine([]() -> std::string
+							  {
+								  std::string done;
+								  return NVS::Get(CAL_NVS, CAL_KEY, done) == ESP_OK ? "Kalibratie: " + done + " ppm"
+																					: "Kalibratie: niet gedaan";
+							  });
 #endif
 	GenericESP32Firmware::Initialize(DEVICE_TYPE_NAME);
 

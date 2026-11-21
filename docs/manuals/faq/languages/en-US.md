@@ -23,8 +23,8 @@ The screen refreshes with every measurement, so the numbers are at most 10 minut
 
 For example after a new router or a new Wi-Fi password:
 
-1. Hold the button on top of the module for 10 seconds, until the green light blinks 5 times.
-2. Release it. The module restarts and shows the QR code with **Scan met app**.
+1. Press the dial on the side, choose **Wifi opnieuw** and then **Ja, wifi vergeten**. (If the screen does not work, hold the button on top of the module for 10 seconds, until the green light blinks 5 times.)
+2. The module restarts and shows the QR code with **Scan met app**.
 3. Scan that QR code in the NeedForHeat app and follow the app.
 
 Earlier measurements are kept.
@@ -33,14 +33,14 @@ Earlier measurements are kept.
 
 The module counts people by checking which registered smartphones are nearby. At the start, register your own smartphone and that of each housemate once; the neighbours' phones then do not count.
 
-1. Press the black dial on the side. You see **SMARTPHONES:**.
+1. Press the black dial on the side, choose **Smartphones** and press again. You see **SMARTPHONES:**.
 2. Choose **+ toevoegen** and press the dial.
 3. On the smartphone, go to **Settings > Bluetooth**, switch Bluetooth on and tap **NeedForHeat_OK** as soon as it appears.
 4. A beep confirms the pairing; the smartphone's name appears in the list on the screen.
 
 If it does not work at once, try again.
 
-To remove a smartphone: scroll to its name with the dial, press and confirm. **terug** leaves the menu; after 2 minutes without using the dial the module returns to the measurements by itself.
+To remove a smartphone: scroll to its name with the dial, press and confirm. **terug** goes back to the menu; after 2 minutes without using the dial the module returns to the measurements by itself.
 
 ## 5. Does Bluetooth have to stay on?
 
@@ -50,11 +50,11 @@ How it works: now and then the module sends a [Bluetooth name request](https://g
 
 ## 6. The screen has light or dark marks
 
-That is caused by sunlight or bright light on the e-ink screen. Press the dial and choose **terug**: the screen is then fully redrawn.
+That is caused by sunlight or bright light on the e-ink screen. Press the dial and choose **Scherm verversen**: the screen is then fully redrawn. If the screen does not respond at all, hold the dial pressed for 10 seconds: after two beeps the module restarts.
 
 ## 7. The screen says *Batterij bijna leeg* or *laad nu op*
 
-The USB power is disconnected or the adapter is not in the socket. Connect it again; the module keeps measuring. With *Batterij leeg* the module stops until power is connected again.
+The USB power is disconnected or the adapter is not in the socket. Connect it again; the module keeps measuring. With *Batterij leeg* the module stops until power is connected again. The menu item **Batterij** shows how full the battery is and how long it will last.
 
 ## 8. The screen shows the QR code with *Scan met app* again
 
@@ -68,7 +68,21 @@ Only when the researcher asks for it, before pairing, and once:
 2. Hold the dial pressed for 5 seconds. The screen asks *Ligt de module buiten, in de open lucht?*
 3. Turn the dial down within 30 seconds. After a beep the module measures for at least 8 minutes (at most half an hour); leave it until the screen reports *Gekalibreerd*.
 
-## 10. Where can I find technical information?
+## 10. What is in the menu?
+
+Press the dial on the side. Turn the dial up and down to choose, press to open:
+
+- **Smartphones**: register or remove phones (question 4).
+- **Status**: name and version of the module, the Wi-Fi network, when data was last sent, how many measurements are waiting, and the CO₂ calibration.
+- **Batterij**: voltage, charge, whether power is connected and how long the battery will last.
+- **Nu meten**: the module measures and sends at once, for example after a change of Wi-Fi network.
+- **Scherm verversen**: redraws the screen completely (question 6).
+- **Info**: a QR code to this manual.
+- **Wifi opnieuw**: the module forgets the Wi-Fi network and shows the QR code (question 3). You have to confirm this.
+- **Herstarten**: the module restarts. You have to confirm this.
+- **terug**: back to the measurements. This also happens by itself after 2 minutes.
+
+## 11. Where can I find technical information?
 
 The source code is on GitHub: [needforheat-living-room-module-firmware](https://github.com/energiegedrag-nl/needforheat-living-room-module-firmware).
 
